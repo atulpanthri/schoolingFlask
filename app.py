@@ -17,9 +17,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATION'] =False
 JWT(app,authenticate,identity)  #auth
 api = Api(app)
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
 
 api.add_resource(Item,'/item/<string:name>') # http://127.0.0.1/item/<string:name>
 api.add_resource(ItemList,'/items') #http://127.0.0.1/items
